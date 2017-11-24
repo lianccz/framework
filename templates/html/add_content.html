@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>添加</title>
+    <link href="https://magicbox.bkclouds.cc/static_api/v3/bk/css-pro/bk.css" rel="stylesheet">
+    <link href="https://magicbox.bkclouds.cc/static_api/v3/assets/bk-icon-2.0/iconfont.css" rel="stylesheet">
+    <link href="https://magicbox.bkclouds.cc/static_api/v3/bk/css/bk.css" rel="stylesheet">
+    <script src="https://magicbox.bkclouds.cc/static_api/v3/assets/js/jquery-1.10.2.min.js"></script>
+    <script src="https://magicbox.bkclouds.cc/static_api/v3/assets/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://magicbox.bkclouds.cc/static_api/v3/components_pro/side_panel/js/slide.js"></script>
+</head>
+<body>
+
+<div class="king-block king-block-bordered">
+    <div class="king-block-header king-gray-light">
+        <h3 class="king-block-title" style="font-size:18px;margin-left:10px;">添加内容</h3>
+    </div>
+    <div class="king-block-content">
+        <form action='/serverlist/add/' class="bk-form pr50" method='POST'>
+        <div class="bk-form-item">
+            <label class="bk-label" style="width:220px;">SerAreaUid</label>
+            <div class="bk-form-content" style="margin-left:120px;">
+                {{form.SerAreaUid}}
+            </div>
+        </div>
+        <div class="bk-form-item">
+            <label class="bk-label" style="width:220px;">SerAreaGroupName</label>
+                <div class="bk-form-content" style="margin-left:120px;">
+                {{form.SerAreaGroupName}}
+            </div>
+        </div>
+        <div class="bk-form-item">
+            <label class="bk-label" style="width:220px;">SerAreaFormName</label>
+            <div class="bk-form-content" style="margin-left:120px;">
+                {{form.SerAreaFormName}}
+            </div>
+        </div>
+        <div class="bk-form-item">
+            <label class="bk-label" style="width:220px;">Server_type</label>
+            <div class="bk-form-content" style="margin-left:120px;">
+                {{form.Server_type}}
+            </div>
+        </div>
+        <div class="bk-form-item">
+            <label class="bk-label" style="width:220px;">SerAreaIp</label>
+            <div class="bk-form-content" style="margin-left:120px;">
+                {{form.SerAreaIp}}
+            </div>
+        </div>
+        <div class="bk-form-item">
+            <label class="bk-label" style="width:220px;">SerAreaPort</label>
+            <div class="bk-form-content" style="margin-left:120px;">
+                {{form.SerAreaPort}}
+            </div>
+        </div>
+        <div class="bk-form-item">
+            <label class="bk-label" style="width:220px;">SerAreaPriority</label>
+            <div class="bk-form-content" style="margin-left:120px;">
+                {{form.SerAreaPriority}}
+            </div>
+        </div>
+        <div class="bk-form-item">
+            <div class="bk-form-content" style="margin-left:220px;">
+                <button type="submit" class="bk-button bk-primary" title="保存" id="save">保存</button>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
+<!--
+<form action='/web/add/' method='POST'>
+    		SerAreaUid：{{form.SerAreaUid}}<span>{{ret.error}}</span>
+    		<br/>
+    		SerAreaGroupName：{{form.SerAreaGroupName}}<span>{{ret.error}}</span>
+    		<br/>
+            SerAreaFormName：{{form.SerAreaFormName}}<span>{{ret.error}}</span>
+    		<br/>
+            Server_type：{{form.Server_type}}<span>{{ret.error}}</span>
+    		<br/>
+            SerAreaIp：{{form.SerAreaIp}}<span>{{ret.error}}</span>
+    		<br/>
+            SerAreaPort：{{form.SerAreaPort}}<span>{{ret.error}}</span>
+    		<br/>
+            SerAreaPriority：{{form.SerAreaPriority}}<span>{{ret.error}}</span>
+            <br/>
+    		<input type='submit' value='提交' /><span>{{ret.status}}</span>
+	    </form>
+-->

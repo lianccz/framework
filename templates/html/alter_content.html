@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>修改</title>
+    <link href="https://magicbox.bkclouds.cc/static_api/v3/bk/css-pro/bk.css" rel="stylesheet">
+    <link href="https://magicbox.bkclouds.cc/static_api/v3/assets/bk-icon-2.0/iconfont.css" rel="stylesheet">
+    <link href="https://magicbox.bkclouds.cc/static_api/v3/bk/css/bk.css" rel="stylesheet">
+    <script src="https://magicbox.bkclouds.cc/static_api/v3/assets/js/jquery-1.10.2.min.js"></script>
+    <script src="https://magicbox.bkclouds.cc/static_api/v3/assets/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://magicbox.bkclouds.cc/static_api/v3/components_pro/side_panel/js/slide.js"></script>
+</head>
+<body>
+
+<div class="king-block king-block-bordered">
+    <div class="king-block-header king-gray-light">
+        <h3 class="king-block-title" style="font-size:18px;margin-left:10px;">修改内容</h3>
+    </div>
+    <div class="king-block-content">
+        <form action='/serverlist/alter/' class="bk-form pr50" method='POST'>
+        <div class="bk-form-item">
+            <label class="bk-label" style="width:220px;">SerAreaUid</label>
+            <div class="bk-form-content" style="margin-left:120px;" >
+                <input type="number" name="SerAreaUid" style="width:220px;" required readonly="readonly" value="{{get_all_dict.SerAreaUid}}" id="id_SerAreaUid" />
+            </div>
+        </div>
+        <div class="bk-form-item">
+            <label class="bk-label" style="width:220px;">SerAreaGroupName</label>
+            <div class="bk-form-content" style="margin-left:120px;">
+                <input type="text" name="SerAreaGroupName" style="width:220px;" required value="{{get_all_dict.SerAreaGroupName}}" id="id_SerAreaGroupName" />
+            </div>
+        </div>
+        <div class="bk-form-item">
+            <label class="bk-label" style="width:220px;">SerAreaFormName</label>
+            <div class="bk-form-content" style="margin-left:120px;">
+                <input type="text" name="SerAreaFormName" style="width:220px;" required value="{{get_all_dict.SerAreaFormName}}" id="id_SerAreaFormName" />
+            </div>
+        </div>
+
+        <div class="bk-form-item">
+            <label class="bk-label" style="width:220px;">SerAreaIp</label>
+            <div class="bk-form-content" style="margin-left:120px;">
+                <input type="text" name="SerAreaIp" style="width:220px;" required  value="{{get_all_dict.SerAreaIp}}" id="id_SerAreaIp" />
+            </div>
+        </div>
+        <div class="bk-form-item">
+            <label class="bk-label" style="width:220px;">SerAreaPort</label>
+            <div class="bk-form-content" style="margin-left:120px;">
+                <input type="number" name="SerAreaPort" style="width:220px;" required  value="{{get_all_dict.SerAreaPort}}" id="id_SerAreaPort" />
+            </div>
+        </div>
+        <div class="bk-form-item">
+            <label class="bk-label" style="width:220px;">SerAreaPriority</label>
+            <div class="bk-form-content" style="margin-left:120px;">
+                <input type="number" name="SerAreaPriority" style="width:220px;" required  value="{{get_all_dict.SerAreaPriority}}" id="id_SerAreaPriority" />
+            </div>
+        </div>
+        <div class="bk-form-item">
+            <div class="bk-form-content" style="margin-left:220px;">
+                <button type="submit" class="bk-button bk-primary" title="保存" id="save">保存</button>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

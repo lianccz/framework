@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>主页</title>
+    <link href="https://magicbox.bkclouds.cc/static_api/v3/bk/css-pro/bk.css" rel="stylesheet">
+    <link href="https://magicbox.bkclouds.cc/static_api/v3/assets/bk-icon-2.0/iconfont.css" rel="stylesheet">
+    <link href="https://magicbox.bkclouds.cc/static_api/v3/bk/css/base/common.css" rel="stylesheet">
+    <link href="https://magicbox.bkclouds.cc/static_api/v3/bk/css/components/button.css" rel="stylesheet">
+    <link href="https://magicbox.bkclouds.cc/static_api/v3/assets/fontawesome/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://magicbox.bkclouds.cc/static_api/v3/assets/js/jquery-1.10.2.min.js"></script>
+    <script src="https://magicbox.bkclouds.cc/static_api/v3/assets/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://magicbox.bkclouds.cc/static_api/v3/components_pro/side_panel/js/slide.js"></script>
+    <script language="javascript" type="text/javascript">
+        window.onunload = function(){
+            var epd=new Date();
+            epd.setDate(epd.getDate()+7);
+            document.cookie="pg="+document.getElementById("id_Server_type").selectedIndex+";expires="+epd.toGMTString();
+        }
+        window.onload = function(){
+            var i=0;
+            var gck = document.cookie.split("; ");
+            if(gck[0].split("=")[0]=="pg"){
+                i = parseInt(gck[i].split("=")[1]);
+            }
+            document.getElementById("id_Server_type").selectedIndex = i;
+        }
+    </script>
+ </head>
+<body>
+
+<div class="bk-panel bk-demo">
+    <div class="bk-panel-header">
+        <div class="bk-form-content">
+            <form action="/serverlist/index/" class="bk-form bk-inline-form"  method='POST'>
+                {% csrf_token %}
+                <select name="Server_type" style="width:130px;" class="bk-form-select"  id="id_Server_type"  >
+                    <option value="1" > Android</option>
+                    <option value="2" >IOS</option>
+                    <option value="3" >测试</option>
+                </select>
+             <!--
+            <select name="server" id="" class="bk-form-select" style="width:150px;">
+                <option value="1">Android</option>
+                <option value="2">IOS</option>
+                <option value="3">测试</option>
+            </select>
+            <button class="bk-button bk-primary bk-button-small" title="查询">查询</button>
+            -->
+                <div class="bk-panel-action">
+                <button class="bk-button bk-primary bk-button-small" type="submit">查询</button>
+                </div>
+                <div class="bk-panel-action">
+                <a href="/serverlist/add/" class="bk-button bk-success bk-button-small" id="add">新增</a>
+                </div>
+            </form>
+            <div class="bk-panel-action fr">
+                <a href="/serverlist/index/?distributed=y" class="bk-button bk-danger bk-button-small" style="width:130px;height:35px;font-size:15px;">提交</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bk-panel-body p0">
+    <table class="bk-table has-thead-bordered">
+        <thead>
+        <tr>
+            <th>SerAreaUid</th>
+            <th>SerAreaGroupName</th>
+            <th>SerAreaFormName</th>
+            <th>SerAreaUpName</th>
+            <th>SerAreaIp</th>
+            <th>SerAreaPort</th>
+            <th>SerAreaPriority</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for i in data %}
+                <tr>
+                    <td>{{i.SerAreaUid}}</td>
+                    <td>{{i.SerAreaGroupName}}</td>
+                    <td>{{i.SerAreaFormName}}</td>
+                    <td>{{i.SerAreaUpName}}</td>
+                    <td>{{i.SerAreaIp}}</td>
+                    <td>{{i.SerAreaPort}}</td>
+                    <td>{{i.SerAreaPriority}}</td>
+                    <td>
+                        <a class="bk-icon-button bk-warning bk-button-mini" href="/serverlist/alter/?SerAreaUid={{i.SerAreaUid}}&page={{show_num}}" title="修改">
+                        <i class="bk-icon icon-edit bk-icon"></i>
+                        <i class="bk-text">修改</i>
+                        <a class="bk-icon-button bk-danger bk-button-mini" href="/serverlist/del/?uid={{i.SerAreaUid}}&page={{show_num}}" title="删除">
+                        <i class="bk-icon icon-close bk-icon"></i>
+                        <i class="bk-text">删除</i>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div class="bk-panel-footer p20 fr" >
+    <div class="bk-page">
+        <ul>
+            {% for i in result %}
+                <li class="page-item ">
+                    {{i}}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+</body>
+</html>
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <td>SerAreaUid</td>
+        <td>SerAreaGroupName</td>
+        <td>SerAreaFormName</td>
+        <td>SerAreaUpName</td>
+        <td>SerAreaIp</td>
+        <td>SerAreaPort</td>
+        <td>SerAreaPriority</td>
+        <td>操作</td>
+    </tr>
+    {% for i in data %}
+    <tr>
+	    <td>{{i.SerAreaUid}}</td>
+        <td>{{i.SerAreaGroupName}}</td>
+        <td>{{i.SerAreaFormName}}</td>
+        <td>{{i.SerAreaUpName}}</td>
+        <td>{{i.SerAreaIp}}</td>
+        <td>{{i.SerAreaPort}}</td>
+        <td>{{i.SerAreaPriority}}</td>
+        <td><a href='/web/del/?uid={{i.SerAreaUid}}'>删除</a></td>
+    </tr>
+{% endfor %}
+</table>
+    {{result}}
+</body>
+</html>
+-->
