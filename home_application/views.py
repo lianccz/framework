@@ -9,7 +9,7 @@ def home(request):
     首页
     """
     #return render_mako_context(request, '/home_application/home.html')
-    return HttpResponseRedirect('/yqzj/index')
+    return HttpResponseRedirect('/o/serverlist/yqzj/index')
 
 
 def dev_guide(request):

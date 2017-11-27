@@ -25,7 +25,7 @@ test_name = "/data/xml_file/SerAreaConfig_test.xml"
 @login_exempt
 def show_all_content(request):
     a = []
-    baseurl = '/yqzj/index/?p1='
+    baseurl = '/o/serverlist/yqzj/index/?p1='
     global file_name
     if request.method == 'POST':
         request_form = Select_Form(request.POST)
@@ -78,7 +78,7 @@ def add_operation(request):
                         server_stat[request_dict["Server_type"]], request_dict["SerAreaIp"],
                         request_dict["SerAreaPort"], request_dict["SerAreaPriority"])
             insert_operation(char_join,file_name)
-            return HttpResponseRedirect('/yqzj/index')
+            return HttpResponseRedirect('/o/serverlist/yqzj/index')
         else:
             error_msg = request_form.errors.as_json()
             ret['error'] = json.loads(error_msg)
@@ -115,7 +115,7 @@ def del_operation(request):
             if str(get_uid) in line:
                 continue
             f_w.write(line)
-    return HttpResponseRedirect('/yqzj/index/?p1=%s' % page)
+    return HttpResponseRedirect('/o/serverlist/yqzj/index/?p1=%s' % page)
 @login_exempt
 def alter_operation(request):
     ret = {'status': False, 'data': '', 'error': ''}
@@ -140,7 +140,7 @@ def alter_operation(request):
             request_dict = request_form.clean()
             ret['status'] = True
             alter_content(request_dict,file_name)
-            return HttpResponseRedirect('/yqzj/index?p1=%s' % page)
+            return HttpResponseRedirect('/o/serverlist/yqzj/index?p1=%s' % page)
         else:
             error_msg = request_form.errors.as_json()
             ret['error'] = json.loads(error_msg)
