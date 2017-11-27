@@ -21,8 +21,6 @@ Android_name = "/data/xml_file/SerAreaConfig_Android.xml"
 IOS_name = "/data/xml_file/SerAreaConfig_IOS.xml"
 test_name = "/data/xml_file/SerAreaConfig_test.xml"
 # 获取xml所有值
-@csrf_exempt
-@login_exempt
 def show_all_content(request):
     a = []
     baseurl = '/t/serverlist/yqzj/index/?p1='
@@ -61,8 +59,6 @@ def show_all_content(request):
     return render_to_response('html/show_paging.html',
                               {'data': b, 'result': result, 'show_num': show_num, 'form': request_form})
 
-@csrf_exempt
-@login_exempt
 def add_operation(request):
     ret = {'status': False, 'data': '', 'error': ''}
     server_stat = {1: '新服', 2: '推荐', 3: '爆满'}
@@ -86,7 +82,7 @@ def add_operation(request):
     else:
         request_form = Add_Form()
         return render_to_response('html/add_content.html', {'form': request_form})
-@login_exempt
+
 def add_show(request):
     SerAreaUid = request.GET.get('SerAreaUid', "-001")
     tree = ET.parse(file_name)
@@ -104,7 +100,7 @@ def add_show(request):
             print SerAreaIp
             print SerAreaPort
             print SerAreaPriority
-@login_exempt
+
 def del_operation(request):
     get_uid = int(request.GET.get('uid', "-001"))
     page = int(request.GET.get('page', 1))
@@ -116,7 +112,7 @@ def del_operation(request):
                 continue
             f_w.write(line)
     return HttpResponseRedirect('/t/serverlist/yqzj/index/?p1=%s' % page)
-@login_exempt
+
 def alter_operation(request):
     ret = {'status': False, 'data': '', 'error': ''}
     get_all_dict = {}
