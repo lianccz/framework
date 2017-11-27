@@ -21,6 +21,8 @@ Android_name = "/data/xml_file/SerAreaConfig_Android.xml"
 IOS_name = "/data/xml_file/SerAreaConfig_IOS.xml"
 test_name = "/data/xml_file/SerAreaConfig_test.xml"
 # 获取xml所有值
+
+@csrf_exempt
 def show_all_content(request):
     a = []
     baseurl = '/t/serverlist/yqzj/index/?p1='
