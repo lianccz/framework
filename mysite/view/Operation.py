@@ -86,25 +86,6 @@ def add_operation(request):
         return render_to_response('html/add_content.html', {'form': request_form})
 
 @login_exempt
-def add_show(request):
-    SerAreaUid = request.GET.get('SerAreaUid', "-001")
-    tree = ET.parse(file_name)
-    root = tree.getroot()
-    for i in root.findall('SerAreaData'):
-        rank = i.get("SerAreaUid")
-        if rank == SerAreaUid:
-            SerAreaGroupName = i.get('SerAreaGroupName')
-            SerAreaFormName = i.get('SerAreaFormName')
-            SerAreaIp = i.get('SerAreaIp')
-            SerAreaPort = i.get('SerAreaPort')
-            SerAreaPriority = i.get('SerAreaPriority')
-            print SerAreaGroupName
-            print SerAreaFormName
-            print SerAreaIp
-            print SerAreaPort
-            print SerAreaPriority
-
-@login_exempt
 def del_operation(request):
     get_uid = int(request.GET.get('uid', "-001"))
     page = int(request.GET.get('page', 1))
