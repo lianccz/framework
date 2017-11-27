@@ -8,7 +8,7 @@ def socket_client(distributed,file_path):
     if distributed == "y":
         try:
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            s.connect(('127.0.0.1',8448))
+            s.connect(('118.31.184.85',8448))
         except socket.error:
             sys.exit(1)
         while True:

@@ -11,19 +11,21 @@ from mysite.modle.Paging_Show import paging_info
 from mysite.modle.Alter_Operation import alter_content
 from mysite.modle.Inster_Operation import insert_operation
 from mysite.modle.Socker_Send import socket_client
+from account.decorators import login_exempt
 import json
 import sys
 reload(sys)
 sys.setdefaultencoding('utf8')
 
-Android_name = "C:\Users\caocz\Desktop\SerAreaConfig.xml"
-IOS_name = "C:\Users\caocz\Desktop\SerAreaConfig_IOS.xml"
-test_name = "C:\Users\caocz\Desktop\SerAreaConfig_test.xml"
+Android_name = "/data/xml_file/SerAreaConfig.xml"
+IOS_name = "/data/xml_file/SerAreaConfig_IOS.xml"
+test_name = "/data/xml_file/SerAreaConfig_test.xml"
 # 获取xml所有值
 @csrf_exempt
+@login_exempt
 def show_all_content(request):
     a = []
-    baseurl = '/serverlist/index/?p1='
+    baseurl = '/yqzj/index/?p1='
     global file_name
     if request.method == 'POST':
         request_form = Select_Form(request.POST)
@@ -60,6 +62,7 @@ def show_all_content(request):
                               {'data': b, 'result': result, 'show_num': show_num, 'form': request_form})
 
 @csrf_exempt
+@login_exempt
 def add_operation(request):
     ret = {'status': False, 'data': '', 'error': ''}
     server_stat = {1: '新服', 2: '推荐', 3: '爆满'}
@@ -75,7 +78,7 @@ def add_operation(request):
                         server_stat[request_dict["Server_type"]], request_dict["SerAreaIp"],
                         request_dict["SerAreaPort"], request_dict["SerAreaPriority"])
             insert_operation(char_join,file_name)
-            return HttpResponseRedirect('/serverlist/index')
+            return HttpResponseRedirect('/yqzj/index')
         else:
             error_msg = request_form.errors.as_json()
             ret['error'] = json.loads(error_msg)
@@ -83,7 +86,7 @@ def add_operation(request):
     else:
         request_form = Add_Form()
         return render_to_response('html/add_content.html', {'form': request_form})
-
+@login_exempt
 def add_show(request):
     SerAreaUid = request.GET.get('SerAreaUid', "-001")
     tree = ET.parse(file_name)
@@ -101,7 +104,7 @@ def add_show(request):
             print SerAreaIp
             print SerAreaPort
             print SerAreaPriority
-
+@login_exempt
 def del_operation(request):
     get_uid = int(request.GET.get('uid', "-001"))
     page = int(request.GET.get('page', 1))
@@ -112,8 +115,8 @@ def del_operation(request):
             if str(get_uid) in line:
                 continue
             f_w.write(line)
-    return HttpResponseRedirect('/serverlist/index/?p1=%s' % page)
-
+    return HttpResponseRedirect('/yqzj/index/?p1=%s' % page)
+@login_exempt
 def alter_operation(request):
     ret = {'status': False, 'data': '', 'error': ''}
     get_all_dict = {}
@@ -137,7 +140,7 @@ def alter_operation(request):
             request_dict = request_form.clean()
             ret['status'] = True
             alter_content(request_dict,file_name)
-            return HttpResponseRedirect('/serverlist/index?p1=%s' % page)
+            return HttpResponseRedirect('/yqzj/index?p1=%s' % page)
         else:
             error_msg = request_form.errors.as_json()
             ret['error'] = json.loads(error_msg)

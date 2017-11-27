@@ -14,7 +14,6 @@ from django.conf import settings
 
 from common.log import logger
 
-
 def _gen_header():
     headers = {
         "Content-Type": "application/json",
@@ -22,7 +21,6 @@ def _gen_header():
         "X-APP-TOKEN": settings.APP_TOKEN,
     }
     return headers
-
 
 def _http_request(method, url, headers=None, data=None):
     try:
@@ -42,7 +40,7 @@ def _http_request(method, url, headers=None, data=None):
         logger.exception("login http request error! type: %s, url: %s, data: %s" % (method, url, str(data)))
         return False, None
     else:
-        if resp.status_code != 200:
+        if resp.status_code != 200 :
             content = resp.content[:100] if resp.content else ''
             logger.error("login http request error! type: %s, url: %s, data: %s, response_status_code: %s, response_content: %s"
                          % (method, url, str(data), resp.status_code, content))

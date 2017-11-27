@@ -1,10 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-111111111111111
-</body>
-</html>
+<%inherit file="/base.html"/>
+
+<%block name="content">
+<div class="king-block king-block-bordered">
+    <div class="king-block-header king-gray-light">
+        <h3 class="king-block-title" style="font-size:18px;margin-left:10px;">添加内容</h3>
+    </div>
+    <div class="king-block-content">
+        <form action='/serverlist/add/' class="bk-form pr50" method='POST'>
+        <div class="bk-form-item">
+            <label class="bk-label" style="width:220px;">SerAreaUid</label>
+            <div class="bk-form-content" style="margin-left:120px;">
+                {{form.SerAreaUid}}
+            </div>
+        </div>
+        <div class="bk-form-item">
+            <label class="bk-label" style="width:220px;">SerAreaGroupName</label>
+                <div class="bk-form-content" style="margin-left:120px;">
+                {{form.SerAreaGroupName}}
+            </div>
+        </div>
+        <div class="bk-form-item">
+            <label class="bk-label" style="width:220px;">SerAreaFormName</label>
+            <div class="bk-form-content" style="margin-left:120px;">
+                {{form.SerAreaFormName}}
+            </div>
+        </div>
+        <div class="bk-form-item">
+            <label class="bk-label" style="width:220px;">Server_type</label>
+            <div class="bk-form-content" style="margin-left:120px;">
+                {{form.Server_type}}
+            </div>
+        </div>
+        <div class="bk-form-item">
+            <label class="bk-label" style="width:220px;">SerAreaIp</label>
+            <div class="bk-form-content" style="margin-left:120px;">
+                {{form.SerAreaIp}}
+            </div>
+        </div>
+        <div class="bk-form-item">
+            <label class="bk-label" style="width:220px;">SerAreaPort</label>
+            <div class="bk-form-content" style="margin-left:120px;">
+                {{form.SerAreaPort}}
+            </div>
+        </div>
+        <div class="bk-form-item">
+            <label class="bk-label" style="width:220px;">SerAreaPriority</label>
+            <div class="bk-form-content" style="margin-left:120px;">
+                {{form.SerAreaPriority}}
+            </div>
+        </div>
+        <div class="bk-form-item">
+            <div class="bk-form-content" style="margin-left:220px;">
+                <button type="submit" class="bk-button bk-primary" title="保存" id="save">保存</button>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>
+</%block>

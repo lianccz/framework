@@ -1,13 +1,15 @@
 # -*- coding: utf-8 -*-
 
 from common.mymako import render_mako_context
-
-
+from django.http import HttpResponseRedirect
+from account.decorators import login_exempt
+@login_exempt
 def home(request):
     """
     首页
     """
-    return render_mako_context(request, '/home_application/home.html')
+    #return render_mako_context(request, '/home_application/home.html')
+    return HttpResponseRedirect('/yqzj/index')
 
 
 def dev_guide(request):

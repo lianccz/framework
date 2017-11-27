@@ -17,7 +17,7 @@ from django.conf.urls import url
 from Operation import show_all_content,add_operation,del_operation,alter_operation,add_show
 
 urlpatterns = [
-    url(r'^index/$',show_all_content),
+    url(r'^index/',show_all_content),
     url(r'^add/',add_operation),
     url(r'^del/',del_operation),
     url(r'^alter/',alter_operation),
