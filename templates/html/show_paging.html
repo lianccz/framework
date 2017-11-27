@@ -34,7 +34,7 @@
 <div class="bk-panel bk-demo">
     <div class="bk-panel-header">
         <div class="bk-form-content">
-            <form action="/o/serverlist/yqzj/index/" class="bk-form bk-inline-form"  method='POST'>
+            <form action="/t/serverlist/yqzj/index/" class="bk-form bk-inline-form"  method='POST'>
                 {% csrf_token %}
                 <select name="Server_type" style="width:130px;" class="bk-form-select"  id="id_Server_type"  >
                     <option value="1" > Android</option>
@@ -45,11 +45,11 @@
                 <button class="bk-button bk-primary bk-button-small" type="submit">查询</button>
                 </div>
                 <div class="bk-panel-action">
-                <a href="/o/serverlist/yqzj/add/" class="bk-button bk-success bk-button-small" id="add">新增</a>
+                <a href="/t/serverlist/yqzj/add/" class="bk-button bk-success bk-button-small" id="add">新增</a>
                 </div>
             </form>
             <div class="bk-panel-action fr">
-                <a href="/o/serverlist/yqzj/index/?distributed=y" class="bk-button bk-danger bk-button-small" style="width:130px;height:35px;font-size:15px;">提交</a>
+                <a href="/t/serverlist/yqzj/index/?distributed=y" class="bk-button bk-danger bk-button-small" style="width:130px;height:35px;font-size:15px;">提交</a>
             </div>
         </div>
     </div>
@@ -79,10 +79,10 @@
                     <td>{{i.SerAreaPort}}</td>
                     <td>{{i.SerAreaPriority}}</td>
                     <td>
-                        <a class="bk-icon-button bk-warning bk-button-mini" href="/o/serverlist/yqzj/alter/?SerAreaUid={{i.SerAreaUid}}&page={{show_num}}" title="修改">
+                        <a class="bk-icon-button bk-warning bk-button-mini" href="/t/serverlist/yqzj/alter/?SerAreaUid={{i.SerAreaUid}}&page={{show_num}}" title="修改">
                         <i class="bk-icon icon-edit bk-icon"></i>
                         <i class="bk-text">修改</i>
-                        <a class="bk-icon-button bk-danger bk-button-mini" href="/o/serverlist/yqzj/del/?uid={{i.SerAreaUid}}&page={{show_num}}" title="删除">
+                        <a class="bk-icon-button bk-danger bk-button-mini" href="/t/serverlist/yqzj/del/?uid={{i.SerAreaUid}}&page={{show_num}}" title="删除">
                         <i class="bk-icon icon-close bk-icon"></i>
                         <i class="bk-text">删除</i>
                     </td>
