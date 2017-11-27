@@ -17,7 +17,7 @@ import sys
 reload(sys)
 sys.setdefaultencoding('utf8')
 
-Android_name = "/data/xml_file/SerAreaConfig.xml"
+Android_name = "/data/xml_file/SerAreaConfig_Android.xml"
 IOS_name = "/data/xml_file/SerAreaConfig_IOS.xml"
 test_name = "/data/xml_file/SerAreaConfig_test.xml"
 # 获取xml所有值
